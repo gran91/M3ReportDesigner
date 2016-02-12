@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane id="AnchorPane" prefHeight="639.0" prefWidth="909.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.als.view.ParameterManagementController">
+    <children>
+        <ScrollPane fitToHeight="true" fitToWidth="true">
+            <content>
+                <Accordion AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <panes>
+                        <TitledPane fx:id="histoPane" animated="true" text="%titlepane.histo">
+                            <content>
+                                <StackPane>
+                                    <children>
+                                        <fx:include fx:id="histoTable" source="HistoTablesUI.fxml" />
+                                    </children>
+                                </StackPane>
+                            </content>
+                        </TitledPane>
+                        <TitledPane fx:id="valuePane" animated="true" text="%titlepane.values">
+                            <content>
+                                <StackPane>
+                                    <children>
+                                        <fx:include fx:id="valueTable" source="TableAvailableValueUI.fxml" />
+                                    </children>
+                                </StackPane>
+                            </content>
+                        </TitledPane>
+                        <TitledPane fx:id="conditionPane" animated="true" text="%titlepane.condition">
+                            <content>
+                                <StackPane>
+                                    <children>
+                                        <fx:include fx:id="conditionTable" source="TableConditionUI.fxml" />
+                                    </children>
+                                </StackPane>
+                            </content>
+                        </TitledPane>
+                    </panes>
+                </Accordion>
+            </content>
+        </ScrollPane>
+    </children>
+</StackPane>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.als.view.MainReportController">
+   <center>
+      <ScrollPane fitToWidth="true">
+         <content>
+            <Accordion fx:id="accordion" BorderPane.alignment="CENTER">
+               <panes>
+                  <TitledPane fx:id="titledDivision" prefHeight="250.0" prefWidth="602.0" text="%division.title">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="185.0" prefWidth="600.0">
+                           <children>
+                              <Label layoutX="28.0" layoutY="23.0" text="%division.title" />
+                              <ComboBox fx:id="comboDivision" disable="true" editable="true" layoutX="162.0" layoutY="18.0" prefHeight="28.0" prefWidth="231.0" />
+                              <ColorPicker fx:id="buttonDefault" disable="true" layoutX="162.0" layoutY="125.0" prefHeight="31.0" prefWidth="119.0" />
+                              <Label layoutX="28.0" layoutY="59.0" text="%main.font" />
+                              <ComboBox fx:id="comboFont" disable="true" layoutX="162.0" layoutY="54.0" prefHeight="31.0" prefWidth="232.0" />
+                              <Label layoutX="28.0" layoutY="94.0" text="%main.fontsize" />
+                              <ComboBox fx:id="comboFontSize" disable="true" layoutX="162.0" layoutY="89.0" prefHeight="31.0" prefWidth="233.0" />
+                              <Label layoutX="28.0" layoutY="130.0" text="%report.generalText" />
+                              <Label layoutX="28.0" layoutY="165.0" text="%report.alternativeText" />
+                              <ColorPicker fx:id="buttonAlternative" disable="true" layoutX="162.0" layoutY="160.0" prefHeight="31.0" prefWidth="118.0" />
+                              <Button fx:id="buttonDivision" disable="true" layoutX="405.0" layoutY="15.0" mnemonicParsing="false" onAction="#newDivision">
+                                 <graphic>
+                                    <ImageView fitHeight="21.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/resources/images/add.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Label fx:id="labelDefault" layoutX="305.0" layoutY="130.0" prefHeight="21.0" prefWidth="253.0" text="Hello the world" />
+                              <Label fx:id="labelAlternative" layoutX="305.0" layoutY="165.0" prefHeight="21.0" prefWidth="288.0" text="Hello the world" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane fx:id="titledPrestation" prefHeight="300.0" prefWidth="602.0" text="%prestation.label">
+                     <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="234.0" prefWidth="600.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="15.0" text="%prestation.labelCode" />
+                                    <ComboBox fx:id="comboPrestation" disable="true" layoutX="168.0" layoutY="10.0" prefHeight="31.0" prefWidth="183.0" />
+                                    <Label fx:id="labelPrestation" layoutX="355.0" layoutY="15.0" />
+                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="50.0" maxWidth="1.7976931348623157E308" text="%person.listlabel" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="14.0" layoutY="75.0" text="%person.doctor" />
+                                    <CheckBox fx:id="checkBoxDoctor" disable="true" layoutX="168.0" layoutY="75.0" mnemonicParsing="false" />
+                                    <Label layoutX="14.0" layoutY="105.0" text="%person.prescriberinit" />
+                                    <CheckBox fx:id="checkBoxPrescriberInit" disable="true" layoutX="168.0" layoutY="105.0" mnemonicParsing="false" />
+                                    <Label layoutX="14.0" layoutY="135.0" text="%person.prescriber" />
+                                    <CheckBox fx:id="checkBoxPrescriber" disable="true" layoutX="168.0" layoutY="135.0" mnemonicParsing="false" />
+                                    <Label layoutX="14.0" layoutY="165.0" text="%person.treatdoctor" />
+                                    <CheckBox fx:id="checkBoxTreatDoctor" disable="true" layoutX="168.0" layoutY="165.0" mnemonicParsing="false" />
+                                    <Label layoutX="14.0" layoutY="195.0" text="%person.technician" />
+                                    <CheckBox fx:id="checkBoxTechnician" disable="true" layoutX="168.0" layoutY="195.0" mnemonicParsing="false" />
+                                    <Label layoutX="14.0" layoutY="225.0" text="%person.nurse" />
+                                    <CheckBox fx:id="checkBoxNurse" disable="true" layoutX="168.0" layoutY="225.0" mnemonicParsing="false" />
+                              <ProgressIndicator fx:id="progressPrestation" layoutX="355.0" layoutY="9.0" prefHeight="34.0" prefWidth="44.0" visible="false" />
+                              <Label fx:id="labelTechnicianTel" layoutX="211.0" layoutY="195.0" text="%person.technicianTel" />
+                              <CheckBox fx:id="checkBoxTechnicianTel" disable="true" layoutX="295.0" layoutY="195.0" mnemonicParsing="false" />
+                              <CheckBox fx:id="checkBoxTechnicianAgency" disable="true" layoutX="385.0" layoutY="195.0" mnemonicParsing="false" />
+                              <Label fx:id="labelTechnicianAgency" layoutX="329.0" layoutY="195.0" text="%person.technicianAgency" />
+                              <Button fx:id="breloadPrestation" layoutX="367.0" layoutY="10.0" mnemonicParsing="false" onAction="#listDivisionPrestation" prefHeight="35.0" prefWidth="35.0" visible="false">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/resources/images/process.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></Button>
+                                 </children>
+                              </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane fx:id="titledBlock" prefHeight="400.0" prefWidth="600.0" text="%titleblock.label">
+                     <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="15.0" text="%title.label">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font></Label>
+                                    <Label layoutX="14.0" layoutY="50.0" text="%title.shapetype" />
+                                    <ComboBox fx:id="comboTitleShapeType" disable="true" layoutX="233.0" layoutY="45.0" prefHeight="31.0" prefWidth="204.0" />
+                                    <Label layoutX="14.0" layoutY="85.0" text="%title.fontsize" />
+                                    <ComboBox fx:id="comboTitleFontSize" disable="true" layoutX="233.0" layoutY="80.0" prefHeight="31.0" prefWidth="205.0" />
+                                    <Label layoutX="14.0" layoutY="125.0" text="%title.fontcolor" />
+                                    <ColorPicker fx:id="buttonTitleFontColor" disable="true" layoutX="233.0" layoutY="120.0" prefHeight="31.0" prefWidth="112.0" />
+                                    <Label layoutX="14.0" layoutY="160.0" text="%title.foregroundcolor" />
+                                    <ColorPicker fx:id="buttonForegroundTitleColor" disable="true" layoutX="233.0" layoutY="155.0" prefHeight="31.0" prefWidth="114.0" />
+                                    <Label layoutX="14.0" layoutY="195.0" text="%title.bordercolor" />
+                                    <ColorPicker fx:id="buttonBorderTitleColor" disable="true" layoutX="233.0" layoutY="190.0" prefHeight="31.0" prefWidth="114.0" />
+                              <StackPane layoutX="494.0" layoutY="44.0" prefHeight="54.0" prefWidth="231.0">
+                                 <children>
+                                    <Rectangle fx:id="titleShape" fill="WHITE" height="34.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="200.0" />
+                                    <Label fx:id="labelSampleTitle" ellipsisString="" prefHeight="21.0" prefWidth="192.0" text="Hello the world!" />
+                                 </children>
+                              </StackPane>
+                              <StackPane layoutX="495.0" layoutY="255.0" prefHeight="102.0" prefWidth="229.0">
+                                 <children>
+                                    <Rectangle fx:id="blockShape" fill="WHITE" height="92.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="200.0" />
+                                 </children>
+                              </StackPane>
+                              <Label layoutX="13.0" layoutY="233.0" text="%block.label">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="comboBlockShapeType" disable="true" layoutX="233.0" layoutY="255.0" prefHeight="31.0" prefWidth="207.0" />
+                              <Label layoutX="13.0" layoutY="260.0" text="%block.shapetype" />
+                              <ColorPicker fx:id="buttonBorderBlockColor" disable="true" layoutX="233.0" layoutY="325.0" prefHeight="31.0" prefWidth="110.0" />
+                              <Label layoutX="14.0" layoutY="330.0" text="%block.bordercolor" />
+                              <ColorPicker fx:id="buttonForegroundBlockColor" disable="true" layoutX="233.0" layoutY="290.0" prefHeight="31.0" prefWidth="108.0" />
+                              <Label layoutX="14.0" layoutY="295.0" text="%block.foregroundcolor" />
+                                 </children>
+                              </AnchorPane>
+                     </content></TitledPane>
+                  <TitledPane fx:id="titledParameter" text="%parameter.label">
+                     <content>
+                        <AnchorPane prefHeight="400.0" prefWidth="600.0">
+                           <children>
+                              <StackPane layoutX="12.0" layoutY="12.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <ProgressIndicator fx:id="progressTable" layoutX="12.0" layoutY="42.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
+                                    <Label fx:id="messageTable" layoutX="12.0" layoutY="12.0" textAlignment="CENTER" visible="false">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font></Label>
+                                 </children>
+                              </StackPane>
+                              <TableView fx:id="parameterTable" disable="true" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMousePressed="#onMousePressed" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                                 <columns>
+                                    <TableColumn fx:id="codeColumn" editable="false" prefWidth="100.0" text="%parameter.titlecode" />
+                                    <TableColumn fx:id="descriptionColumn" editable="false" prefWidth="100.0" text="%parameter.description" />
+                                    <TableColumn fx:id="typeColumn" prefWidth="100.0" text="%parameter.type" />
+                                 </columns>
+                                 <contextMenu>
+                                    <ContextMenu>
+                                      <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#accessParameter" text="%parameter.access" />
+                                      </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+               </panes>
+            </Accordion>
+         </content>
+      </ScrollPane>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="39.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="buttonGenerate" disable="true" mnemonicParsing="false" onAction="#processPrestation" text="%report.generate" />
+         </children>
+      </HBox>
+   </bottom>
+   <top>
+      <HBox alignment="CENTER" prefHeight="44.0" prefWidth="800.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="%environment.title" />
+            <ComboBox fx:id="comboEnvironment" editable="true" />
+            <Button mnemonicParsing="false" onAction="#newEnvironment">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/resources/images/add.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+</BorderPane>

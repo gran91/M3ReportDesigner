@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.als.view.EnvironmentOverviewController">
+   <children>
+      <VBox prefHeight="577.0" prefWidth="727.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+   <children>
+      <Pane />
+      <Pane />
+      <ToolBar>
+        <items>
+            <Pane HBox.hgrow="ALWAYS" />
+          <Button mnemonicParsing="false" text="%main.add" />
+            <Button mnemonicParsing="false" text="%main.delete" />
+                  <Button mnemonicParsing="false" text="%main.edit" />
+            <Pane HBox.hgrow="ALWAYS" />
+        </items>
+      </ToolBar>
+      <Pane />
+      <Pane />
+   </children>
+</VBox>
+      <TableView fx:id="dataTable" layoutY="45.0" prefHeight="532.0" prefWidth="727.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
+        <columns>
+          <TableColumn fx:id="nameColumn" prefWidth="100" text="%environment.name" />
+          <TableColumn fx:id="ipColumn" prefWidth="100" text="%environment.host" />
+          <TableColumn fx:id="portColumn" prefWidth="100" text="%environment.port" />
+          <TableColumn fx:id="loginColumn" prefWidth="100" text="%environment.login" />
+          <TableColumn fx:id="passwordColumn" prefWidth="100" text="%environment.password" />
+          <TableColumn fx:id="pathMOMColumn" prefWidth="100" text="%environment.pathmom" />
+          <TableColumn fx:id="serverColumn" prefWidth="100" text="%environment.server" />
+          <TableColumn fx:id="serviceColumn" prefWidth="100" text="%environment.service" />
+        </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleNew" text="%main.add" />
+                <MenuItem mnemonicParsing="false" onAction="#handleEdit" text="%main.edit" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleCopy" text="%main.copy" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleDelete" text="%main.delete" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </TableView>
+   </children>
+</AnchorPane>

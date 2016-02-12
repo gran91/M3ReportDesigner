@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.layout.*?>
+
+<!--<BorderPane prefHeight="400.0" prefWidth="600.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.als.view.RootLayoutController"> -->
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.als.view.RootLayoutController">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="%main.file">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleNew" text="%main.new">
+                            <accelerator>
+                                <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                            </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpen" text="%main.open">
+                            <accelerator>
+                                <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                            </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#handleSave" text="%main.save">
+                            <accelerator>
+                                <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                            </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#handleSaveAs" text="%main.saveas" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleExit" text="%main.quit" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="%main.configuration">
+                    <items>
+                  <MenuItem mnemonicParsing="false" onAction="#showGeneralEditDialog" text="%general.title" />
+                        <MenuItem mnemonicParsing="false" onAction="#showDivisionOverview" text="%division.title" />
+                        <MenuItem mnemonicParsing="false" onAction="#showServerOverview" text="%server.title" />
+                        <MenuItem mnemonicParsing="false" onAction="#showEnvironmentOverview" text="%environment.title" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="%main.run">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleReport" text="%m3.runreport" />
+                    </items>
+                </Menu>
+                <Menu fx:id="langmenu" mnemonicParsing="false" text="%main.language">
+                    <items>
+                        <RadioMenuItem id="fr_FR" fx:id="menuFR" mnemonicParsing="false" text="%language.french">
+                            <graphic>
+                                <ImageView pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@/resources/images/lng_FR.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </RadioMenuItem>
+                        <RadioMenuItem id="en_EN" fx:id="menuEN" mnemonicParsing="false" text="%language.english">
+                            <graphic>
+                                <ImageView pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@/resources/images/lng_EN.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </RadioMenuItem>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="?">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="%about.title" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+</BorderPane>
