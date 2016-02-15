@@ -22,7 +22,7 @@ public class PrestationUI {
 //private final ObjectProperty<ObservableList<TitleCodeParameter>> listTitleParameter;
     private final ObservableList<TitleCodeParameter> observableListTitleParameter = FXCollections.observableArrayList();
     private final ResourceBundle resourceMessage = ResourceBundle.getBundle("resources/language", Locale.getDefault());
-    public static String[] listKeyPrestation = {"TITLE_TYPE", "TITLE_FONT_SIZE", "TITLE_FONT_COLOR", "TITLE_FRAME_COLOR", "TITLE_BORDER_COLOR", "SHAPE_TYPE", "SHAPE_FRAME_COLOR", "SHAPE_BORDER_COLOR", "DOCTOR", "BEGINPRESCRIBER", "PRESCRIBER", "TREATDOCTOR", "TECHNICIAN", "TECHNICIAN_TEL", "TECHNICIAN_AGENCY", "NURSE", "PRESTLOGO_L", "PRESTLOGO_H"};
+    public static String[] listKeyPrestation = {"TITLE_TYPE", "TITLE_FONT_SIZE", "TITLE_FONT_COLOR", "TITLE_FRAME_COLOR", "TITLE_BORDER_COLOR", "SHAPE_TYPE", "SHAPE_FRAME_COLOR", "SHAPE_BORDER_COLOR", "DOCTOR", "BEGINPRESCRIBER", "PRESCRIBER", "TREATDOCTOR", "TECHNICIAN", "TECHNICIAN_TEL", "TECHNICIAN_AGENCY", "NURSE", "PRESTLOGOL", "PRESTLOGOH"};
     public ObservableList<String> listShape = FXCollections.observableArrayList();
     public static int rectangleCorner = 0;
     public static int roundRectangleCorner = 50;

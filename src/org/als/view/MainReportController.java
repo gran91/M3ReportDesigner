@@ -2,6 +2,7 @@ package org.als.view;
 
 import api.ConnexionAPI;
 import fx.custom.FxUtil;
+import fx.custom.InputConstraints;
 import javafx.scene.paint.Color;
 import java.io.File;
 import java.io.IOException;
@@ -201,7 +202,10 @@ public class MainReportController {
 
     @FXML
     public void initialize() {
-
+        InputConstraints.numbersOnly(divisionLogoL);
+        InputConstraints.numbersOnly(divisionLogoH);
+        InputConstraints.numbersOnly(prestationLogoL);
+        InputConstraints.numbersOnly(prestationLogoH);
     }
 
     private void addBindings() {
@@ -548,7 +552,7 @@ public class MainReportController {
                                 divisionUI.getFontColor().setValue((p.get(DivisionUI.listDivisionKey[2]) != null) ? ColorFontTools.getColor(p.get(DivisionUI.listDivisionKey[2])[0].trim()) : mainApp.getGeneral().getDefaultFontColorProperty().getValue());
                                 divisionUI.getFontColorAlertnative().setValue((p.get(DivisionUI.listDivisionKey[3]) != null) ? ColorFontTools.getColor(p.get(DivisionUI.listDivisionKey[3])[0].trim()) : Color.RED);
                                 divisionUI.getLogoL().setValue((p.get(DivisionUI.listDivisionKey[4]) != null) ? tools.Tools.convertToInt(p.get(DivisionUI.listDivisionKey[4])[0].trim()) : mainApp.getGeneral().getDefaultLogoLProperty().getValue());
-                                divisionUI.getLogoH().setValue((p.get(DivisionUI.listDivisionKey[5]) != null) ? tools.Tools.convertToInt(p.get(DivisionUI.listDivisionKey[5])[0].trim()) : mainApp.getGeneral().getDefaultLogoLProperty().getValue());
+                                divisionUI.getLogoH().setValue((p.get(DivisionUI.listDivisionKey[5]) != null) ? tools.Tools.convertToInt(p.get(DivisionUI.listDivisionKey[5])[0].trim()) : mainApp.getGeneral().getDefaultLogoHProperty().getValue());
                             }
 
                         } else {
