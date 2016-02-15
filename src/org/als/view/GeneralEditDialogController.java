@@ -118,7 +118,7 @@ public class GeneralEditDialogController {
         colorField.setValue(general.getDefaultFontColorProperty().get());
         textField.setText(general.getDefaultTextProperty().get());
         logoL.setText(""+general.getDefaultLogoLProperty().get());
-        logoH.setText(""+general.getDefaultLogoLProperty().get());
+        logoH.setText(""+general.getDefaultLogoHProperty().get());
         timeoutField.setText("" + general.getTimeoutProperty().getValue());
     }
 

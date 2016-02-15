@@ -362,7 +362,15 @@ public class MainReportController {
             prestationUI.getTitleFontSize().set(newValue);
             titleFont.set(new Font(divisionUI.getFont().getValue().getName(), newValue));
         });
+        
+        divisionLogoL.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            divisionLogoL.setText(divisionUI.getLogoL().getValue().toString());
+        });
 
+        divisionLogoH.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            divisionLogoH.setText(divisionUI.getLogoH().getValue().toString());
+        });
+        
         comboTitleShapeType.setItems(prestationUI.listShape);
         comboBlockShapeType.setItems(prestationUI.listShape);
 
