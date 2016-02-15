@@ -17,9 +17,9 @@
          <content>
             <Accordion fx:id="accordion" BorderPane.alignment="CENTER">
                <panes>
-                  <TitledPane fx:id="titledDivision" prefHeight="250.0" prefWidth="602.0" text="%division.title">
+                  <TitledPane fx:id="titledDivision" prefHeight="314.0" prefWidth="798.0" text="%division.title">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="185.0" prefWidth="600.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="255.0" prefWidth="796.0">
                            <children>
                               <Label layoutX="28.0" layoutY="23.0" text="%division.title" />
                               <ComboBox fx:id="comboDivision" disable="true" editable="true" layoutX="162.0" layoutY="18.0" prefHeight="28.0" prefWidth="231.0" />
@@ -42,11 +42,17 @@
                               </Button>
                               <Label fx:id="labelDefault" layoutX="305.0" layoutY="130.0" prefHeight="21.0" prefWidth="253.0" text="Hello the world" />
                               <Label fx:id="labelAlternative" layoutX="305.0" layoutY="165.0" prefHeight="21.0" prefWidth="288.0" text="Hello the world" />
+                              <Label layoutX="28.0" layoutY="201.0" text="%division.logo" />
+                              <Label layoutX="162.0" layoutY="201.0" text="L:" />
+                              <TextField fx:id="divisionLogoL" disable="true" layoutX="179.0" layoutY="196.0" prefHeight="31.0" prefWidth="60.0" />
+                              <Label layoutX="253.0" layoutY="201.0" text="H:" />
+                              <TextField fx:id="divisionLogoH" disable="true" layoutX="278.0" layoutY="196.0" prefHeight="31.0" prefWidth="60.0" />
+                              <Label layoutX="358.0" layoutY="201.0" text="mm" />
                            </children>
                         </AnchorPane>
                      </content>
                   </TitledPane>
-                  <TitledPane fx:id="titledPrestation" prefHeight="300.0" prefWidth="602.0" text="%prestation.label">
+                  <TitledPane fx:id="titledPrestation" prefHeight="349.0" prefWidth="798.0" text="%prestation.label">
                      <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="234.0" prefWidth="600.0">
                                  <children>
@@ -83,6 +89,12 @@
                                        </image>
                                     </ImageView>
                                  </graphic></Button>
+                              <Label layoutX="14.0" layoutY="269.0" text="%prestation.logo" />
+                              <TextField fx:id="prestationLogoL" disable="true" layoutX="182.0" layoutY="264.0" prefHeight="31.0" prefWidth="60.0" />
+                              <Label layoutX="165.0" layoutY="269.0" text="L:" />
+                              <Label layoutX="260.0" layoutY="269.0" text="H:" />
+                              <Label layoutX="360.0" layoutY="269.0" text="mm" />
+                              <TextField fx:id="prestationLogoH" disable="true" layoutX="284.0" layoutY="264.0" prefHeight="31.0" prefWidth="60.0" />
                                  </children>
                               </AnchorPane>
                      </content>

@@ -19,7 +19,8 @@ public class DivisionUI {
     private final ObjectProperty<Color> fontColor;
     private final ObjectProperty<Color> fontColorAlertnative;
     private final IntegerProperty fontSize;
-    public static String[] listDivisionKey = {"FONT", "FONTSIZE", "COLOR", "ALTERCOLOR"};
+    private final IntegerProperty logoL,logoH;
+    public static String[] listDivisionKey = {"FONT", "FONTSIZE", "COLOR", "ALTERCOLOR","LOGOL","LOGOH"};
 
     public DivisionUI(String divi,MainApp mainApp) {
         if (divi == null) {
@@ -35,6 +36,8 @@ public class DivisionUI {
         font.addListener((ObservableValue<? extends Font> observable, Font oldValue, Font newValue) -> {
             formatFont.set(newValue.getName().replaceAll(" ", "_"));
         });
+        logoL = new SimpleIntegerProperty(mainApp.getGeneral().getDefaultLogoL());
+        logoH = new SimpleIntegerProperty(mainApp.getGeneral().getDefaultLogoH());
     }
 
     public StringProperty getDivi() {

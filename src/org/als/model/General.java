@@ -13,8 +13,6 @@ import javafx.scene.text.Font;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.als.jaxb.adapter.ColorAdapter;
 import org.als.jaxb.adapter.FontAdapter;
-import org.als.jaxb.adapter.IntegerAdapter;
-import org.als.jaxb.adapter.LongAdapter;
 
 public class General {
 
@@ -23,6 +21,7 @@ public class General {
     private final IntegerProperty defaultFontSize;
     private final StringProperty defaultText;
     private final LongProperty timeout;
+    private final IntegerProperty defaultLogoL, defaultLogoH;
 
     public General() {
         defaultFont = new SimpleObjectProperty<>();
@@ -30,6 +29,8 @@ public class General {
         defaultFontSize = new SimpleIntegerProperty();
         defaultText = new SimpleStringProperty();
         timeout = new SimpleLongProperty();
+        defaultLogoL = new SimpleIntegerProperty();
+        defaultLogoH = new SimpleIntegerProperty();
     }
 
     public static General getDefault() {
@@ -53,6 +54,14 @@ public class General {
     public IntegerProperty getDefaultFontSizeProperty() {
         return defaultFontSize;
     }
+    
+     public IntegerProperty getDefaultLogoLProperty() {
+        return defaultLogoL;
+    }
+     
+     public IntegerProperty getDefaultLogoHProperty() {
+        return defaultLogoH;
+    }
 
     public StringProperty getDefaultTextProperty() {
         return defaultText;
@@ -75,6 +84,14 @@ public class General {
     public int getDefaultFontSize() {
         return defaultFontSize.get();
     }
+    
+    public int getDefaultLogoL() {
+        return defaultLogoL.get();
+    }
+    
+    public int getDefaultLogoH() {
+        return defaultLogoH.get();
+    }
 
     public String getDefaultText() {
         return defaultText.get();
@@ -95,7 +112,15 @@ public class General {
     public void setDefaultFontSize(int size) {
         defaultFontSize.set(size);
     }
-
+    
+    public void setDefaultLogoL(int size) {
+        defaultLogoL.set(size);
+    }
+    
+    public void setDefaultLogoH(int size) {
+        defaultLogoH.set(size);
+    }
+    
     public void setDefaultText(String text) {
         defaultText.set(text);
     }
