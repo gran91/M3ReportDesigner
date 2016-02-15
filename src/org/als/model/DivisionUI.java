@@ -19,10 +19,10 @@ public class DivisionUI {
     private final ObjectProperty<Color> fontColor;
     private final ObjectProperty<Color> fontColorAlertnative;
     private final IntegerProperty fontSize;
-    private final IntegerProperty logoL,logoH;
-    public static String[] listDivisionKey = {"FONT", "FONTSIZE", "COLOR", "ALTERCOLOR","LOGOL","LOGOH"};
+    private final IntegerProperty logoL, logoH;
+    public static String[] listDivisionKey = {"FONT", "FONTSIZE", "COLOR", "ALTERCOLOR", "LOGOL", "LOGOH"};
 
-    public DivisionUI(String divi,MainApp mainApp) {
+    public DivisionUI(String divi, MainApp mainApp) {
         if (divi == null) {
             this.divi = new SimpleStringProperty("");
         } else {
@@ -62,6 +62,14 @@ public class DivisionUI {
 
     public IntegerProperty getFontSize() {
         return fontSize;
+    }
+
+    public IntegerProperty getLogoL() {
+        return logoL;
+    }
+
+    public IntegerProperty getLogoH() {
+        return logoH;
     }
 
 }

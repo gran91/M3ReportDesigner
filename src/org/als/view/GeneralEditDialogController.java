@@ -35,6 +35,10 @@ public class GeneralEditDialogController {
     @FXML
     private TextField textField;
     @FXML
+    private TextField logoL;
+    @FXML
+    private TextField logoH;
+    @FXML
     private TextField timeoutField;
     @FXML
     private Button okButton;
@@ -42,7 +46,7 @@ public class GeneralEditDialogController {
     private Stage dialogStage;
     private General general;
     private boolean okClicked = false;
-    private BooleanBinding textBoolean, timeoutBoolean;
+    private BooleanBinding textBoolean, timeoutBoolean,logoLBoolean,logoHBoolean;
 
     protected Map<BooleanBinding, String> messages = new LinkedHashMap<>();
 
@@ -81,9 +85,14 @@ public class GeneralEditDialogController {
         }
         sizeField.setItems(listFontSize);
         InputConstraints.numbersOnly(timeoutField);
+        InputConstraints.numbersOnly(logoL);
+        InputConstraints.numbersOnly(logoH);
         textBoolean = TextFieldValidator.emptyTextFieldBinding(textField, MainApp.resourceMessage.getString("message.text"), messages);
-        timeoutBoolean = TextFieldValidator.emptyTextFieldBinding(textField, MainApp.resourceMessage.getString("message.timeout"), messages);
-        BooleanBinding[] mandotariesBinding = new BooleanBinding[]{textBoolean, timeoutBoolean};
+        timeoutBoolean = TextFieldValidator.emptyTextFieldBinding(timeoutField, MainApp.resourceMessage.getString("message.timeout"), messages);
+        logoLBoolean = TextFieldValidator.emptyTextFieldBinding(logoL, MainApp.resourceMessage.getString("message.logo"), messages);
+        logoHBoolean = TextFieldValidator.emptyTextFieldBinding(logoH, MainApp.resourceMessage.getString("message.logo"), messages);
+        
+        BooleanBinding[] mandotariesBinding = new BooleanBinding[]{textBoolean, timeoutBoolean,logoLBoolean,logoHBoolean};
         BooleanBinding mandatoryBinding = TextFieldValidator.any(mandotariesBinding);
         okButton.disableProperty().bind(mandatoryBinding);
     }
@@ -108,6 +117,8 @@ public class GeneralEditDialogController {
         sizeField.setValue(general.getDefaultFontSizeProperty().get());
         colorField.setValue(general.getDefaultFontColorProperty().get());
         textField.setText(general.getDefaultTextProperty().get());
+        logoL.setText(""+general.getDefaultLogoLProperty().get());
+        logoH.setText(""+general.getDefaultLogoLProperty().get());
         timeoutField.setText("" + general.getTimeoutProperty().getValue());
     }
 
@@ -130,6 +141,8 @@ public class GeneralEditDialogController {
             general.getDefaultFontSizeProperty().setValue(sizeField.getSelectionModel().getSelectedItem());
             general.getDefaultFontColorProperty().setValue(colorField.getValue());
             general.getDefaultTextProperty().setValue(textField.getText());
+            general.getDefaultLogoLProperty().setValue(Integer.parseInt(logoL.getText()));
+            general.getDefaultLogoHProperty().setValue(Integer.parseInt(logoH.getText()));
             general.getTimeoutProperty().setValue(Long.parseLong(timeoutField.getText()));
             okClicked = true;
             dialogStage.close();

@@ -42,6 +42,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.control.cell.ChoiceBoxTableCell;
 import javafx.scene.input.MouseEvent;
@@ -96,6 +97,10 @@ public class MainReportController {
     private Label labelAlternative;
     @FXML
     private ColorPicker buttonAlternative;
+    @FXML
+    private TextField divisionLogoL;
+    @FXML
+    private TextField divisionLogoH;
 
 //PRESTATION
     @FXML
@@ -124,6 +129,10 @@ public class MainReportController {
     private CheckBox checkBoxTechnicianAgency;
     @FXML
     private CheckBox checkBoxNurse;
+    @FXML
+    private TextField prestationLogoL;
+    @FXML
+    private TextField prestationLogoH;
 //TITLE
     @FXML
     private Label labelSampleTitle;
@@ -239,6 +248,14 @@ public class MainReportController {
 
         comboBlockShapeType.valueProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
             prestationUI.getBlockShape().setValue(comboBlockShapeType.getSelectionModel().getSelectedIndex());
+        });
+
+        prestationLogoL.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            prestationUI.getLogoL().setValue(Integer.parseInt(prestationLogoL.getText()));
+        });
+
+        prestationLogoH.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            prestationUI.getLogoH().setValue(Integer.parseInt(prestationLogoH.getText()));
         });
 
     }
@@ -443,6 +460,8 @@ public class MainReportController {
                 comboFontSize.setDisable(false);
                 buttonDefault.setDisable(false);
                 buttonAlternative.setDisable(false);
+                divisionLogoL.setDisable(false);
+                divisionLogoH.setDisable(false);
                 getDivisionUIParameter();
                 listDivisionPrestation();
             } else {
@@ -451,6 +470,8 @@ public class MainReportController {
                 buttonDefault.setDisable(true);
                 buttonAlternative.setDisable(true);
                 comboPrestation.setDisable(true);
+                divisionLogoL.setDisable(true);
+                divisionLogoH.setDisable(true);
             }
             isGenerate.set(true);
         });
@@ -499,6 +520,8 @@ public class MainReportController {
             checkBoxTechnicianTel.setDisable(newValue == null);
             checkBoxTechnicianAgency.setDisable(newValue == null);
             checkBoxNurse.setDisable(newValue == null);
+            prestationLogoL.setDisable(newValue == null);
+            prestationLogoH.setDisable(newValue == null);
         });
         labelDefault.textProperty().bind(mainApp.getGeneral().getDefaultTextProperty());
         labelAlternative.textProperty().bind(mainApp.getGeneral().getDefaultTextProperty());
@@ -524,6 +547,8 @@ public class MainReportController {
                                 divisionUI.getFormatFont().setValue(formatFont.replaceAll("_", " "));
                                 divisionUI.getFontColor().setValue((p.get(DivisionUI.listDivisionKey[2]) != null) ? ColorFontTools.getColor(p.get(DivisionUI.listDivisionKey[2])[0].trim()) : mainApp.getGeneral().getDefaultFontColorProperty().getValue());
                                 divisionUI.getFontColorAlertnative().setValue((p.get(DivisionUI.listDivisionKey[3]) != null) ? ColorFontTools.getColor(p.get(DivisionUI.listDivisionKey[3])[0].trim()) : Color.RED);
+                                divisionUI.getLogoL().setValue((p.get(DivisionUI.listDivisionKey[4]) != null) ? tools.Tools.convertToInt(p.get(DivisionUI.listDivisionKey[4])[0].trim()) : mainApp.getGeneral().getDefaultLogoLProperty().getValue());
+                                divisionUI.getLogoH().setValue((p.get(DivisionUI.listDivisionKey[5]) != null) ? tools.Tools.convertToInt(p.get(DivisionUI.listDivisionKey[5])[0].trim()) : mainApp.getGeneral().getDefaultLogoLProperty().getValue());
                             }
 
                         } else {
@@ -546,6 +571,8 @@ public class MainReportController {
                     comboFontSize.setValue(divisionUI.getFontSize().get());
                     buttonDefault.setValue(divisionUI.getFontColor().get());
                     buttonAlternative.setValue(divisionUI.getFontColorAlertnative().get());
+                    divisionLogoL.setText("" + divisionUI.getLogoL().get());
+                    divisionLogoH.setText("" + divisionUI.getLogoH().get());
                     notifier.notify(new Notification(resourceMessage.getString("message.titleDivision"), String.format(resourceMessage.getString("message.okdivisionparameter"), comboDivision.getValue().getName()), Notification.SUCCESS_ICON));
                     break;
             }
@@ -582,6 +609,8 @@ public class MainReportController {
                                 prestationUI.getTechnicianTel().set((p.get(PrestationUI.listKeyPrestation[13]) != null) ? tools.Tools.convertToBoolean(p.get(PrestationUI.listKeyPrestation[13])[0].trim()) : false);
                                 prestationUI.getTechnicianAgency().set((p.get(PrestationUI.listKeyPrestation[14]) != null) ? tools.Tools.convertToBoolean(p.get(PrestationUI.listKeyPrestation[14])[0].trim()) : false);
                                 prestationUI.getNurse().set((p.get(PrestationUI.listKeyPrestation[15]) != null) ? tools.Tools.convertToBoolean(p.get(PrestationUI.listKeyPrestation[15])[0].trim()) : false);
+                                prestationUI.getLogoL().set((p.get(PrestationUI.listKeyPrestation[16]) != null) ? tools.Tools.convertToInt(p.get(PrestationUI.listKeyPrestation[16])[0].trim()) : mainApp.getGeneral().getDefaultLogoL());
+                                prestationUI.getLogoH().set((p.get(PrestationUI.listKeyPrestation[17]) != null) ? tools.Tools.convertToInt(p.get(PrestationUI.listKeyPrestation[17])[0].trim()) : mainApp.getGeneral().getDefaultLogoH());
                             } else {
                                 throw new RuntimeException();
                             }
@@ -617,7 +646,10 @@ public class MainReportController {
                     comboBlockShapeType.getSelectionModel().select(prestationUI.getBlockShape().getValue());
                     buttonForegroundBlockColor.setValue(prestationUI.getForegroundBlockColor().getValue());
                     buttonBorderBlockColor.setValue(prestationUI.getBorderBlockColor().getValue());
-
+                    prestationLogoL.setText(prestationUI.getLogoL().getValue().toString());
+                    prestationLogoH.setText(prestationUI.getLogoH().getValue().toString());
+                    
+                    
                     comboTitleShapeType.setDisable(false);
                     comboTitleFontSize.setDisable(false);
                     buttonTitleFontColor.setDisable(false);
@@ -627,6 +659,8 @@ public class MainReportController {
                     comboBlockShapeType.setDisable(false);
                     buttonForegroundBlockColor.setDisable(false);
                     buttonBorderBlockColor.setDisable(false);
+                    prestationLogoL.setDisable(false);
+                    prestationLogoH.setDisable(false);
                     break;
                 case CANCELLED:
                 case SUCCEEDED:
@@ -650,6 +684,9 @@ public class MainReportController {
                     buttonForegroundBlockColor.setValue(prestationUI.getForegroundBlockColor().getValue());
                     buttonBorderBlockColor.setValue(prestationUI.getBorderBlockColor().getValue());
 
+                    prestationLogoL.setText(prestationUI.getLogoL().getValue().toString());
+                    prestationLogoH.setText(prestationUI.getLogoH().getValue().toString());
+                    
                     comboTitleShapeType.setDisable(false);
                     comboTitleFontSize.setDisable(false);
                     buttonTitleFontColor.setDisable(false);
@@ -659,6 +696,8 @@ public class MainReportController {
                     comboBlockShapeType.setDisable(false);
                     buttonForegroundBlockColor.setDisable(false);
                     buttonBorderBlockColor.setDisable(false);
+                    prestationLogoL.setDisable(false);
+                    prestationLogoH.setDisable(false);
 
                     notifier.notify(new Notification(resourceMessage.getString("message.titlePrestationCode"), String.format(resourceMessage.getString("message.okPrestationCode"), new String[]{comboPrestation.getValue().getName(), comboPrestation.getValue().getCode(), comboDivision.getValue().getName()}), Notification.SUCCESS_ICON));
                     break;
@@ -1355,6 +1394,9 @@ public class MainReportController {
                             MOMFile.addLine(p, DivisionUI.listDivisionKey[1] + "\t" + divisionUI.getFontSize().getValue());
                             MOMFile.addLine(p, DivisionUI.listDivisionKey[2] + "\t" + ColorFontTools.getRGB(divisionUI.getFontColor().getValue()));
                             MOMFile.addLine(p, DivisionUI.listDivisionKey[3] + "\t" + ColorFontTools.getRGB(divisionUI.getFontColorAlertnative().getValue()));
+                            MOMFile.addLine(p, DivisionUI.listDivisionKey[4] + "\t" + divisionUI.getLogoL().getValue());
+                            MOMFile.addLine(p, DivisionUI.listDivisionKey[5] + "\t" + divisionUI.getLogoH().getValue());
+                            
                         }
                         if (prestationUI != null) {
                             updateMessage(String.format(resourceMessage.getString("message.prestationdata"), prestationUI.getPrestation().getValue().getName()));
@@ -1377,6 +1419,8 @@ public class MainReportController {
                             MOMFile.addLine(p, PrestationUI.listKeyPrestation[13] + "\t" + tools.Tools.convertBooleanToInt(prestationUI.getTechnicianTel().getValue()));
                             MOMFile.addLine(p, PrestationUI.listKeyPrestation[14] + "\t" + tools.Tools.convertBooleanToInt(prestationUI.getTechnicianAgency().getValue()));
                             MOMFile.addLine(p, PrestationUI.listKeyPrestation[15] + "\t" + tools.Tools.convertBooleanToInt(prestationUI.getNurse().getValue()));
+                            MOMFile.addLine(p, PrestationUI.listKeyPrestation[16] + "\t" + prestationUI.getLogoL().getValue());
+                            MOMFile.addLine(p, PrestationUI.listKeyPrestation[17] + "\t" + prestationUI.getLogoH().getValue());
 
                             ArrayList<ArrayList<String>> listTitleKey = new ArrayList<>();
                             ArrayList<ArrayList<String>> listConditionKey = new ArrayList<>();

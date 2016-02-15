@@ -16,13 +16,13 @@ public class PrestationUI {
 
     private final ObjectProperty<Prestation> prestation;
     private final BooleanProperty doctor, prescriberInit, prescriber, treatDoctor, technician, technicianTel, technicianAgency, nurse;
-    private final IntegerProperty titleShape, titleFontSize, blockShape;
+    private final IntegerProperty titleShape, titleFontSize, blockShape, logoH, logoL;
     private final ObjectProperty<Color> fontTitleColor, foregroundTitleColor, borderTitleColor;
     private final ObjectProperty<Color> foregroundBlockColor, borderBlockColor;
 //private final ObjectProperty<ObservableList<TitleCodeParameter>> listTitleParameter;
     private final ObservableList<TitleCodeParameter> observableListTitleParameter = FXCollections.observableArrayList();
     private final ResourceBundle resourceMessage = ResourceBundle.getBundle("resources/language", Locale.getDefault());
-    public static String[] listKeyPrestation = {"TITLE_TYPE", "TITLE_FONT_SIZE", "TITLE_FONT_COLOR", "TITLE_FRAME_COLOR", "TITLE_BORDER_COLOR", "SHAPE_TYPE", "SHAPE_FRAME_COLOR", "SHAPE_BORDER_COLOR", "DOCTOR", "BEGINPRESCRIBER", "PRESCRIBER", "TREATDOCTOR", "TECHNICIAN", "TECHNICIAN_TEL", "TECHNICIAN_AGENCY", "NURSE"};
+    public static String[] listKeyPrestation = {"TITLE_TYPE", "TITLE_FONT_SIZE", "TITLE_FONT_COLOR", "TITLE_FRAME_COLOR", "TITLE_BORDER_COLOR", "SHAPE_TYPE", "SHAPE_FRAME_COLOR", "SHAPE_BORDER_COLOR", "DOCTOR", "BEGINPRESCRIBER", "PRESCRIBER", "TREATDOCTOR", "TECHNICIAN", "TECHNICIAN_TEL", "TECHNICIAN_AGENCY", "NURSE", "PRESTLOGO_L", "PRESTLOGO_H"};
     public ObservableList<String> listShape = FXCollections.observableArrayList();
     public static int rectangleCorner = 0;
     public static int roundRectangleCorner = 50;
@@ -50,6 +50,8 @@ public class PrestationUI {
         blockShape = new SimpleIntegerProperty();
         foregroundBlockColor = new SimpleObjectProperty<>();
         borderBlockColor = new SimpleObjectProperty<>();
+        logoL = new SimpleIntegerProperty();
+        logoH = new SimpleIntegerProperty();
     }
 
     public ObjectProperty<Prestation> getPrestation() {
@@ -90,6 +92,14 @@ public class PrestationUI {
 
     public IntegerProperty getTitleShape() {
         return titleShape;
+    }
+
+    public IntegerProperty getLogoL() {
+        return logoL;
+    }
+
+    public IntegerProperty getLogoH() {
+        return logoH;
     }
 
     public IntegerProperty getTitleFontSize() {
