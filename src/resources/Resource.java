@@ -14,7 +14,7 @@ import javafx.scene.image.Image;
 public class Resource {
 
     public static final String TITLE = "M3ReportDesigner";
-    public static final String VERSION = "2.0.6";
+    public static final String VERSION = "2.0.7";
     public static final Image LOGO_ICON = new Image(Resource.class.getResourceAsStream("/resources/images/logo.png"));
     public static final String pathMOMTable = System.getProperty("file.separator") + "data" + System.getProperty("file.separator") + "tables";
     public static final String pathMOMFont = System.getProperty("file.separator") + "data" + System.getProperty("file.separator") + "fonts";
