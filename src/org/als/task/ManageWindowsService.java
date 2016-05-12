@@ -157,7 +157,7 @@ public class ManageWindowsService extends Service<Boolean> {
     public static void waitThread(ThreadExec t) {
         while (t.isActive()) {
             try {
-                Thread.sleep(100);
+                Thread.sleep(1000);
             } catch (InterruptedException ex) {
 
             }

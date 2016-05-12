@@ -60,6 +60,20 @@ public class InputConstraints {
         });
     }
     
+    public static void lettersAndNumbers(final TextField textField, final Integer maxLenth) {
+        textField.addEventFilter(KeyEvent.KEY_TYPED, createLettersAndNumbersInputHandler(maxLenth));
+        textField.focusedProperty().addListener((Observable observable) -> {
+            textField.setText(textField.getText().trim());
+        });
+    }
+    
+    public static void upperCaseOnly(final TextField textField, final Integer maxLenth) {
+        textField.addEventFilter(KeyEvent.KEY_TYPED, createUpperCaseInputHandler(maxLenth));
+        textField.focusedProperty().addListener((Observable observable) -> {
+            textField.setText(textField.getText().trim());
+        });
+    }
+    
     public static void upperCaseAndNumbersOnly(final TextField textField, final Integer maxLenth) {
         textField.addEventFilter(KeyEvent.KEY_TYPED, createUpperCaseAndNumberInputHandler(maxLenth));
         textField.focusedProperty().addListener((Observable observable) -> {
@@ -84,6 +98,14 @@ public class InputConstraints {
 
     public static EventHandler<KeyEvent> createLettersOnlyInputHandler(final Integer maxLength) {
         return createPatternInputHandler(maxLength, "[A-Za-z]");
+    }
+    
+    public static EventHandler<KeyEvent> createLettersAndNumbersInputHandler(final Integer maxLength) {
+        return createPatternInputHandler(maxLength, "[A-Za-z0-9]");
+    }
+    
+    public static EventHandler<KeyEvent> createUpperCaseInputHandler(final Integer maxLength) {
+        return createPatternInputHandler(maxLength, "[A-Z]");
     }
     
     public static EventHandler<KeyEvent> createUpperCaseAndNumberInputHandler(final Integer maxLength) {

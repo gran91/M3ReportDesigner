@@ -48,7 +48,6 @@ public class ServerEditDialogController {
     @FXML
     private void initialize() {
         new PasswordFieldSkin(passwordField);
-        InputConstraints.upperCaseAndNumbersOnly(loginField, 10);
         nameBoolean = TextFieldValidator.emptyTextFieldBinding(nameField, MainApp.resourceMessage.getString("message.nameServer"), messages);
         ipBoolean = TextFieldValidator.emptyTextFieldBinding(ipField, MainApp.resourceMessage.getString("message.ip"), messages);
         loginBoolean = TextFieldValidator.emptyTextFieldBinding(loginField, MainApp.resourceMessage.getString("message.login"), messages);

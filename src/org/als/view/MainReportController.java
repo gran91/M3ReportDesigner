@@ -364,11 +364,11 @@ public class MainReportController {
         });
         
         divisionLogoL.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
-            divisionLogoL.setText(divisionUI.getLogoL().getValue().toString());
+            divisionUI.getLogoL().set(Integer.parseInt(divisionLogoL.getText()));
         });
 
         divisionLogoH.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
-            divisionLogoH.setText(divisionUI.getLogoH().getValue().toString());
+            divisionUI.getLogoH().set(Integer.parseInt(divisionLogoH.getText()));
         });
         
         comboTitleShapeType.setItems(prestationUI.listShape);
